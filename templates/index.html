@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Index {% endblock %}
+
+{% block content %}
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+            <a class="btn btn-danger" href="{% url 'register' %}">Register</a>
+        </div>
+    </nav>
+{% endblock %}

@@ -1,6 +1,8 @@
 from django import forms
-from .models import Pessoa
+from django.contrib.auth.forms import AuthenticationForm
 
 
-class FormPessoa(forms.Form):
-    nome = forms.CharField(label='Seu nome', max_length=100)
+class CustomLoginForm(AuthenticationForm):
+    email = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Senha'}))

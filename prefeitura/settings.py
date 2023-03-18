@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Any
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -10,7 +11,7 @@ SECRET_KEY = 'django-insecure-t&-z#sm9$o1=_&_bwtzx17s^o(0o1w$evzp^=24ab0l(41%%kp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: list[Any] = []
 
 
 # Application definition
@@ -23,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pesquisa',
-    'bootstrap5'
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -86,13 +87,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'pesquisa.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Manaus'
 
 USE_I18N = True
 

@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from pesquisa.models import Pessoa
+from pesquisa.models import CustomUser
 
 
 # Register your models here.
 
-@admin.register(Pessoa)
+@admin.register(CustomUser)
 class PessoaAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'sobrenome', 'cpf')
+    list_display = ('first_name', 'last_name', 'cpf')
