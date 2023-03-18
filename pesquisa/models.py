@@ -8,4 +8,4 @@ class Pessoa(models.Model):
     nome = models.CharField(max_length=60)
     sobrenome = models.CharField(max_length=60)
     data_nascimento = models.DateField()
-    cpf = models.CharField(max_length=12)
+    cpf = models.CharField(max_length=12, unique=True)

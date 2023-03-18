@@ -6,12 +6,4 @@ from .forms import FormPessoa
 
 
 def index(request: HttpRequest):
-
-    if request.method == 'POST':
-        form = FormPessoa(request.POST)
-        if form.is_valid():
-            return redirect('/')
-    else:
-
-        form = FormPessoa()
-    return render(request, 'base.html', {'form': form})
+    return render(request, 'pesquisa/index.html', )
