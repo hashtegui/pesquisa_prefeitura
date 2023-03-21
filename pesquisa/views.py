@@ -1,7 +1,7 @@
 from django.http import HttpRequest
 from django.contrib.auth import authenticate, login
 from .forms import CustomLoginForm
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 
 
 # Create your views here.
@@ -24,6 +24,9 @@ def login_function(request):
                 render(request, 'user/login/index.html')
             else:
                 form.add_error(None, 'Usuário e/ou senha incorretos')
+        else:
+            print(form.errors)
+            print('Formulário não é válido')
     else:
         form = CustomLoginForm()
     return render(request, 'user/login.html', {'form': form})
