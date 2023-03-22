@@ -13,6 +13,8 @@ DEBUG = True
 
 ALLOWED_HOSTS: list[Any] = []
 
+LOGIN_REDIRECT_URL = 'login/'
+
 
 # Application definition
 
