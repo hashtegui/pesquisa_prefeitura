@@ -1,8 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+<></>
+{% block title %} Register {% endblock %} 
+<></>
+{% block content %} 
+<form method="get">
 
-{% block title %} Register {% endblock %}
+  {% csrf_token %}
+{{form.as_div}} 
 
-{% block content %}
-
-
+<button type="submit">Save</button>
+</form>
 {% endblock %}

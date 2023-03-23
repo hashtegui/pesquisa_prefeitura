@@ -1,6 +1,6 @@
 from django.http import HttpRequest
 from django.contrib.auth import authenticate, login
-from .forms import CustomLoginForm
+from .forms import CustomLoginForm, RegisterForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -29,7 +29,8 @@ def login_function(request: HttpRequest):
 
 
 def register(request):
-    return render(request, 'user/register.html')
+    form = RegisterForm()
+    return render(request, 'user/register.html', {'form': form})
 
 
 @login_required(login_url='/login')
