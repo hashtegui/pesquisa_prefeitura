@@ -25,6 +25,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     cpf = models.CharField(max_length=12, unique=True)
+    dt_nascimento = models.DateField(null=True)
+    local_nascimento = models.CharField(max_length=50, null=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS: list = []
