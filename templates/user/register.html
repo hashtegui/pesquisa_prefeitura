@@ -3,11 +3,41 @@
 {% block title %} Register {% endblock %} 
 <></>
 {% block content %} 
-<form method="get">
-
+<form method="post">
   {% csrf_token %}
-{{form.as_div}} 
 
-<button type="submit">Save</button>
+  <div class="form-group">
+    <label for="{{ form.first_name.id_for_label }}">Nome:
+    </label>
+    {{form.first_name}}
+
+    <label for="{{ form.last_name.id_for_label }}">Sobrenome:
+    </label>
+    {{form.last_name}}
+
+    <label for="{{ form.email.id_for_label }}">
+      Email:
+    </label>
+    {{form.email}}
+    <!-- Adicionando máscara para formatação de CPF -->
+    <script>
+      $(document).ready(function (){
+        $("#{{form.cpf.id_for_label}}").mask('000.000.000-00')
+      })
+    </script>
+
+    <label for="{{form.cpf.id_for_label}}">CPF: </label>
+    {{form.cpf}}
+
+    <label for="{{form.dt_nascimento.id_for_label}}">Data de Nascimento: </label>
+    {{form.dt_nascimento}}
+
+    <label>Senha: </label>
+    {{form.password1}}
+    {{form.password2}}
+  </div>
+
+
+<button class="btn btn-primary" type="submit">Registrar</button>
 </form>
 {% endblock %}

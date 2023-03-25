@@ -1,3 +1,4 @@
+from datetime import date
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -11,9 +12,19 @@ class CustomLoginForm(AuthenticationForm):
         attrs={'class': 'form-control', 'placeholder': 'Senha', 'id': 'password', 'name': 'password'}))
 
 
-class RegisterForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
+class RegisterForm(forms.Form):
+    password1 = forms.CharField(widget=forms.PasswordInput())
+    password2 = forms.CharField(widget=forms.PasswordInput())
 
-    class Meta:
-        model = CustomUser
-        fields = ['email', 'first_name', 'last_name', 'cpf']
+    dt_nascimento = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}))
+
+    email = forms.CharField(widget=forms.widgets.EmailInput(
+        attrs={'class': 'form-control', 'placeholder': 'Email'}))
+
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control'}))
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control'}))
+    cpf = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control', 'autocomplete': 'off'}))

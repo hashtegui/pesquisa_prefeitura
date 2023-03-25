@@ -28,9 +28,14 @@ def login_function(request: HttpRequest):
     return render(request, 'user/login.html', {'form': form})
 
 
-def register(request):
-    form = RegisterForm()
-    return render(request, 'user/register.html', {'form': form})
+def register(request: HttpRequest):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        print(form)
+        return render(request, 'user/register.html', {'form': form})
+    else:
+        form = RegisterForm()
+        return render(request, 'user/register.html', {'form': form})
 
 
 @login_required(login_url='/login')
