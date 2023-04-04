@@ -1,14 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block title %} Index 
 
-
-{% block title %} Index {% endblock %}
-
+{% endblock%} 
+<></>
+<></>
 {% block content %}
 
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
-            <a class="btn btn-danger" href="{% url 'register' %}">Register</a>
-        </div>
-    </nav>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+    <div>
+        <img src="{% static 'logo.png' %}" alt="Logo do Estado do Amazonas" style="width: 50px;">
+    </div>
+    <a class="btn btn-danger" href="{% url 'register' %}">Register</a>
+  </div>
+</nav>
 {% endblock %}

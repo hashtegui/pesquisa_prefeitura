@@ -1,3 +1,85 @@
-{% extends 'base.html' %} {% block content %}
-<p>{{ user.first_name }} Logado</p>
+{% extends 'base.html' %} {% block title %} Questionário {% endblock %}
+<></>
+{% block content %}
+
+<script>
+  $(document).ready(function () {
+    $("#imprimir").click(function () {
+      window.print();
+    });
+  });
+</script>
+
+<div class="container">
+  <div>
+    <div>
+      <p>Nome: {{user.first_name}} {{user.last_name}}</p>
+      <p>Email: {{user.email}}</p>
+      <p>Data de Nascimento: {{user.dt_nascimento}}</p>
+      <p>CPF: {{user.cpf}}</p>
+    </div>
+  </div>
+  <h4>PERGUNTAS</h4>
+  <div class="container">
+    <label
+      >1° Como você considera o esforço do governo usando a tecnologia no
+      serviço público</label
+    >
+    <div class="mt-3">
+      <input type="radio" name="setor" /> Péssimo <br />
+      <input type="radio" name="setor" /> ruim <br />
+      <input type="radio" name="setor" /> Bom <br />
+      <input type="radio" name="setor" /> Ótimo <br />
+    </div>
+
+    <div class="mt-3">
+      <label
+        >2° Qual setor da administração pública precisa mais de inovação
+        tecnologica</label
+      >
+      <br />
+      <br />
+      <textarea></textarea>
+    </div>
+
+    <div class="mt-3">
+      <label for="">
+        3° como você considera o nível de facilidade do uso das tecnologias
+        aplicadas pelo Governo do Estado do Amazonas na prestação de serviço a
+        população m?
+      </label>
+    </div>
+    <div class="mt-3">
+      <input type="radio" name="tecnologias" /> Péssimo <br />
+      <input type="radio" name="tecnologias" /> ruim <br />
+      <input type="radio" name="tecnologias" /> Bom <br />
+      <input type="radio" name="tecnologias" /> Ótimo <br />
+    </div>
+    <div class="mt-3">
+      <label for="">
+        4° Você seria capaz de dar sugestões e feedback para o setor de TI da
+        gestão pública?
+      </label>
+      <br />
+      <textarea name="" id="" cols="30" rows="5"></textarea>
+    </div>
+
+    <div class="mt-3">
+      <label for="">
+        5°Voce acha que a população deveria ser instruídas para o uso das novas
+        tecnologias?
+      </label>
+      <br />
+      <textarea name="" id="" cols="30" rows="5"></textarea>
+    </div>
+    <div class="mt-3">
+      <label for="">
+        6°Se possível, cite uma melhoria na tecnologia no serviço público
+      </label>
+      <br />
+      <textarea name="" id="" cols="30" rows="5"></textarea>
+    </div>
+  </div>
+  <a class="btn btn-primary" id="imprimir">Imprimir em PDF</a>
+</div>
 {% endblock %}

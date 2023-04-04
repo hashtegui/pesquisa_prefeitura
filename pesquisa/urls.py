@@ -1,10 +1,11 @@
 from django.urls import include, path
-from . import views
 
+from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.login_function, name='login'),
     path('register/', views.register, name='register'),
-    path('user/', views.pagina_inicial, name='pagina_inicial')
+    path('user/', views.pagina_inicial, name='pagina_inicial'),
+    path('pdf/', views.generate_pdf, name='generate_pdf')
 ]
